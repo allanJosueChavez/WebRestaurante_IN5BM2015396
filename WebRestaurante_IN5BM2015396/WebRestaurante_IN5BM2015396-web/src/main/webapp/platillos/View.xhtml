@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PlatillosViewDlg" widgetVar="PlatillosViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewPlatillosTitle}">
+            <h:form id="PlatillosViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{platillosController.selected != null}">
+                        <h:outputText value="#{bundle.ViewPlatillosLabel_idplatillo}"/>
+                        <h:outputText value="#{platillosController.selected.idplatillo}" title="#{bundle.ViewPlatillosTitle_idplatillo}"/>
+                        <h:outputText value="#{bundle.ViewPlatillosLabel_descripcionplatillo}"/>
+                        <h:outputText value="#{platillosController.selected.descripcionplatillo}" title="#{bundle.ViewPlatillosTitle_descripcionplatillo}"/>
+                        <h:outputText value="#{bundle.ViewPlatillosLabel_importe}"/>
+                        <h:outputText value="#{platillosController.selected.importe}" title="#{bundle.ViewPlatillosTitle_importe}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="PlatillosViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
